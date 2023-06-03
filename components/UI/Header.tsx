@@ -82,7 +82,7 @@ export default function Header() {
                   {links.map((link, i) => (
                     <li
                       key={i}
-                      className="text-md cursor-pointer border-b-4 border-transparent  font-medium text-dark-grayish-blue transition duration-300 hover:border-orange md:py-8"
+                      className="text-md cursor-pointer border-b-4 border-transparent  font-medium text-dark-grayish-blue transition ease-in-out duration-300 hover:border-orange hover:text-very-dark-blue md:py-8"
                       id="this-element"
                     >
                       {link}
