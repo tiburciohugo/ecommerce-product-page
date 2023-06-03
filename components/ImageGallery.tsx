@@ -100,7 +100,9 @@ const ImageGallery = () => {
               <img
                 src={image}
                 alt="thumbnail"
-                className="active rounded-xl transition hover:opacity-50"
+                className={`active rounded-xl transition hover:opacity-50 ${
+                currentImageIndex === index ? "opacity-50" : ""
+              }`}
                 id={`thumb-${index + 1}`}
               />
             </div>

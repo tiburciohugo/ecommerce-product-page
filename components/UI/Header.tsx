@@ -92,8 +92,8 @@ export default function Header() {
               </nav>
             </div>
 
-            <div className="relative flex items-center gap-4 md:pb-6">
-              <div className="absolute -top-1 right-8 rounded-full bg-orange px-1 text-center text-xs font-bold text-white md:right-14 md:top-1.5">
+            <div className="relative flex items-center gap-4 md:pb-6 lg:space-x-8">
+              <div className="absolute -top-1 right-8 rounded-full bg-orange px-1 text-center text-xs font-bold text-white md:right-14 lg:right-[60%] md:top-1.5">
                 0
               </div>
               <button

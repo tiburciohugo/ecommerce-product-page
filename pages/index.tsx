@@ -2,13 +2,13 @@
 /* eslint-disable @next/next/no-img-element */
 import Counter from "@/components/Counter";
 import ImageGallery from "@/components/ImageGallery";
-import Lightbox from "@/components/Lightbox";
 import Head from "next/head";
 import { useState } from "react";
 import { Kumbh_Sans } from "next/font/google";
 
 const kumbhSans = Kumbh_Sans({
- subsets: ["latin"],})
+  subsets: ["latin"],
+});
 
 type Slide = {
   content: string;
