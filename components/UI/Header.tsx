@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 function CartPopover() {
+  const counter = useSelector((state: RootState) => state.counter);
+  
   return (
     <div className="popover-content md:top-18 absolute left-1/2 top-20 z-40 w-[360px] -translate-x-1/2 transform rounded-xl bg-white shadow-lg shadow-very-dark-blue md:left-auto md:right-6 md:translate-x-0">
       <div className="">
@@ -23,7 +25,7 @@ function CartPopover() {
             <div className="text-dark-grayish-blue">
               <h4 className="text-md">Fall Limited Edition Sneakers</h4>
               <div className="flex items-center gap-2">
-                <p className="text-sm">$125.00 x 1</p>
+                <p id="here" className="text-sm">$125.00 x {counter}</p>
                 <p className="font-bold text-very-dark-blue">$125.00</p>
               </div>
             </div>
