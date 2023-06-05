@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import { RootState } from "@/globalRedux/store";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 function CartPopover() {
   return (
@@ -57,6 +59,7 @@ export default function Header() {
   const toggle = () => SetIsOpen(!isOpen);
   const toggleCart = () => setIsCartOpen(!isCartOpen);
   const links = ["Collections", "Men", "Women", "About", "Contact"];
+  const counter = useSelector((state: RootState) => state.counter);
 
   return (
     <>
@@ -94,7 +97,7 @@ export default function Header() {
 
             <div className="relative flex items-center gap-4 md:pb-6 lg:space-x-8">
               <div className="absolute -top-1 right-8 rounded-full bg-orange px-1 text-center text-xs font-bold text-white md:right-14 lg:right-[60%] md:top-1.5">
-                0
+                {counter}
               </div>
               <button
                 id="cart-button"

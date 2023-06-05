@@ -1,16 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { increment, decrement } from "../globalRedux/slices/counterSlice";
+import { RootState } from "@/globalRedux/store";
+
 
 export default function Counter() {
-  const [counter, setCounter] = useState(0);
+ const dispatch = useDispatch();
+ const counter = useSelector((state: RootState) => state.counter);
 
   const handleIncrement = () => {
-    setCounter((prev) => prev + 1);
+    dispatch(increment());
   };
 
   const handleDecrement = () => {
-    setCounter((prev) => prev - 1);
+    dispatch(decrement());
   };
+
+  console.log('contador: ', counter);
 
   return (
     <div className="mt-4 flex h-[52px] items-center justify-between rounded-lg bg-light-grayish-blue px-6 lg:w-1/3">
