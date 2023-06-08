@@ -2,58 +2,7 @@
 import { RootState } from "@/globalRedux/store";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-
-function CartPopover() {
-  const counter = useSelector((state: RootState) => state.counter);
-  
-  return (
-    <div className="popover-content md:top-18 absolute left-1/2 top-20 z-40 w-[360px] -translate-x-1/2 transform rounded-xl bg-white shadow-lg shadow-very-dark-blue md:left-auto md:right-6 md:translate-x-0">
-      <div className="">
-        <h3 className="border-b border-grayish-blue px-5 pb-6 pt-4 text-xl font-bold text-very-dark-blue">
-          Cart
-        </h3>
-      </div>
-      <div className="flex flex-col gap-4 px-5 py-6">
-        <div className="flex items-center justify-between">
-          <div className="flex gap-4">
-            <img
-              src="/image-product-1-thumbnail.jpg"
-              alt="product"
-              width={50}
-              className="rounded-md"
-            />
-            <div className="text-dark-grayish-blue">
-              <h4 className="text-md">Fall Limited Edition Sneakers</h4>
-              <div className="flex items-center gap-2">
-                <p id="here" className="text-sm">$125.00 x {counter}</p>
-                <p className="font-bold text-very-dark-blue">$125.00</p>
-              </div>
-            </div>
-          </div>
-          <button className="hover:text-very-dark-blue">
-            <svg
-              width="14"
-              height="16"
-              xmlns="http://www.w3.org/2000/svg"
-              href="http://www.w3.org/1999/xlink"
-            >
-              <defs>
-                <path
-                  d="M0 2.625V1.75C0 1.334.334 1 .75 1h3.5l.294-.584A.741.741 0 0 1 5.213 0h3.571a.75.75 0 0 1 .672.416L9.75 1h3.5c.416 0 .75.334.75.75v.875a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 2.625Zm13 1.75V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 14.5V4.375C1 4.169 1.169 4 1.375 4h11.25c.206 0 .375.169.375.375ZM4.5 6.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Z"
-                  id="a"
-                />
-              </defs>
-              <use fill="currentColor" fill-rule="nonzero" href="#a" />
-            </svg>
-          </button>
-        </div>
-        <button className="mt-4 w-full rounded-lg bg-orange p-4 font-semibold text-white">
-          Checkout
-        </button>
-      </div>
-    </div>
-  );
-}
+import CartPopOver from "../CartPopOver";
 
 export default function Header() {
   const [isOpen, SetIsOpen] = useState(true);
@@ -62,6 +11,7 @@ export default function Header() {
   const toggleCart = () => setIsCartOpen(!isCartOpen);
   const links = ["Collections", "Men", "Women", "About", "Contact"];
   const counter = useSelector((state: RootState) => state.counter);
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
   return (
     <>
@@ -99,7 +49,7 @@ export default function Header() {
 
             <div className="relative flex items-center gap-4 md:pb-6 lg:space-x-8">
               <div className="absolute -top-1 right-8 rounded-full bg-orange px-1 text-center text-xs font-bold text-white md:right-14 lg:right-[60%] md:top-1.5">
-                {counter}
+                {cartItems.length * counter}
               </div>
               <button
                 id="cart-button"
@@ -148,7 +98,7 @@ export default function Header() {
         </div>
       </section>
 
-      {isCartOpen && <CartPopover />}
+      {isCartOpen && <CartPopOver />}
     </>
   );
 }
