@@ -45,8 +45,8 @@ Want some support on the challenge? [Join our Slack community](https://www.front
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/)
-- Live Site URL: [Add live site URL here](https://ecommerce-product-page-sable.vercel.app)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/ecommerce-product-page-nextjsredux-toolkittailwind-css-0QG6UMlauD)
+- Live Site URL: [Live Site URL](https://ecommerce-product-page-sable.vercel.app)
 
 ## My process
 
